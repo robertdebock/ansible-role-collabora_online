@@ -9,7 +9,6 @@ argument_specs:
       collabora_online_ssl_enabled:
         type: "str"
         default: false
-        required: true
         description: "Configure SSL? This is a string, not a boolean."
         choices:
           - "false"
