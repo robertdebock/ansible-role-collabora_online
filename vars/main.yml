@@ -8,11 +8,10 @@ _collabora_online_key:
 collabora_online_key: "{{ _collabora_online_key[ansible_os_family] }}"
 
 _collabora_online_repo:
-  Debian-9: "deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-debian9 ./"
-  Debian-10: "deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-debian10 ./"
+  Debian: "deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-debian{{ ansible_distribution_major_version }} ./"
   Ubuntu-16: "deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE ./"
   Ubuntu-18: "deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-ubuntu1804 ./"
-  Ubunut-20: "deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-ubuntu2004 ./"
+  Ubuntu-20: "deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-ubuntu2004 ./"
   RedHat: "https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-centos{{ ansible_distribution_major_version }}"
 
 collabora_online_repo: "{{ _collabora_online_repo[ansible_distribution ~ '-' ~ ansible_distribution_major_version ] | default(_collabora_online_repo[ansible_os_family]) }}"
