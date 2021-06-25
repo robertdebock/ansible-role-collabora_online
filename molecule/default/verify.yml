@@ -1,0 +1,17 @@
+---
+- name: Verify
+  hosts: all
+  become: no
+  gather_facts: no
+
+  tasks:
+    - name: check if port 9980 is open
+      ansible.builtin.wait_for:
+        port: 9980
+
+    - name: check if "OK" is returned from http://localhost:9980
+      ansible.builtin.uri:
+        url: http://127.0.0.1:9980
+        return_content: yes
+      register: collabora_online_test_one
+      failed_when: "'OK' not in collabora_online_test_one.content"
