@@ -23,4 +23,3 @@
         return_content: yes
         validate_certs: no
       register: collabora_online_test_two
-      # failed_when: "'OK' not in collabora_online_test_two.content"
