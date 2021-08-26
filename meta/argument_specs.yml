@@ -13,3 +13,19 @@ argument_specs:
         choices:
           - "false"
           - "true"
+      collabora_online_ssl_cert:
+        type: "str"
+        default: /etc/loolwsd/cert.pem
+        description: "The absolute path to the SSL certificate."
+      collabora_online_ssl_key:
+        type: "str"
+        default: /etc/loolwsd/key.pem
+        description: "The absolute path to the SSL key."
+      collabora_online_ssl_ca:
+        type: "str"
+        default: /etc/loolwsd/ca-chain.cert.pem
+        description: "The absolute path to the SSL certificate."
+      collabora_online_ssl_ciphers:
+        type: "str"
+        default: "ALL:!ADH:!LOW:!EXP:!MD5:@STRENGTH"
+        description: "A list of ciphers."

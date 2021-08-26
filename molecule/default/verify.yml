@@ -11,7 +11,16 @@
 
     - name: check if "OK" is returned from http://localhost:9980
       ansible.builtin.uri:
-        url: http://127.0.0.1:9980
+        url: "https://127.0.0.1:9980"
         return_content: yes
+        validate_certs: no
       register: collabora_online_test_one
       failed_when: "'OK' not in collabora_online_test_one.content"
+
+    - name: check if hosting/discovery is available
+      ansible.builtin.uri:
+        url: "https://127.0.0.1:9980/hosting/discovery"
+        return_content: yes
+        validate_certs: no
+      register: collabora_online_test_two
+      # failed_when: "'OK' not in collabora_online_test_two.content"

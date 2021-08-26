@@ -3,3 +3,10 @@
 
 # Manage SSL capabilities, either "false" or "true". (As a string.)
 collabora_online_ssl_enabled: "false"
+
+# These settings become relevant when `collabora_online_ssl_enabled` is set to
+# `yes`.
+collabora_online_ssl_cert: /etc/loolwsd/loolwsd.crt
+collabora_online_ssl_key: /etc/loolwsd/loolwsd.key
+collabora_online_ssl_ca: /etc/loolwsd/loolwsd.keycrt
+collabora_online_ciphers: "ALL:!ADH:!LOW:!EXP:!MD5:@STRENGTH"
