@@ -11,7 +11,7 @@
 
     - name: check if "OK" is returned from https://localhost:9980
       ansible.builtin.uri:
-        url: "https://127.0.0.1:9980"
+        url: "http://127.0.0.1:9980"
         return_content: yes
         validate_certs: no
       register: collabora_online_test_one
@@ -19,13 +19,13 @@
 
     - name: check if hosting/discovery is available on https://localhost:9980
       ansible.builtin.uri:
-        url: "https://127.0.0.1:9980/hosting/discovery"
+        url: "http://127.0.0.1:9980/hosting/discovery"
         return_content: yes
         validate_certs: no
 
     - name: check if admin.html is available on https://localhost:9980
       ansible.builtin.uri:
-        url: "https://127.0.0.1:9980/loleaflet/dist/admin/admin.html"
+        url: "http://127.0.0.1:9980/loleaflet/dist/admin/admin.html"
         return_content: yes
         validate_certs: no
         status_code:
