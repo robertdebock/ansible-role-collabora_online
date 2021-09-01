@@ -32,7 +32,7 @@ The machine needs to be prepared in CI this is done using `molecule/default/prep
   roles:
     - role: robertdebock.bootstrap
     # - role: robertdebock.buildtools
-    # - role: robertdebock.ca_certificates
+    - role: robertdebock.ca_certificates
     # - role: robertdebock.python_pip
     - role: robertdebock.users
       users_group_list:
