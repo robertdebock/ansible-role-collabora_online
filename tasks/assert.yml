@@ -30,3 +30,11 @@
       - collabora_online_mount_jail_tree is string
       - collabora_online_mount_jail_tree in [ "false", "true" ]
     quiet: yes
+
+- name: test if collabora_online_log_level is set correctly
+  ansible.builtin.assert:
+    that:
+      - collabora_online_log_level is defined
+      - collabora_online_log_level is string
+      - collabora_online_log_level in [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "none", "fatal", "critical", "error", "warning", "notice", "information", "debug", "trace" ]
+    quiet: yes
