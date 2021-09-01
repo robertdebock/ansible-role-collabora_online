@@ -28,5 +28,5 @@
         url: "https://127.0.0.1:9980/loleaflet/dist/admin/admin.html"
         return_content: yes
         validate_certs: no
-        status_codes:
+        status_code:
           - 401
