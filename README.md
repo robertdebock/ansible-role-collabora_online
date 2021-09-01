@@ -18,7 +18,7 @@ This example is taken from `molecule/default/converge.yml` and is tested on each
 
   roles:
     - role: robertdebock.collabora_online
-      collabora_online_ssl_enabled: "true"
+      # collabora_online_ssl_enabled: "true"
 ```
 
 The machine needs to be prepared in CI this is done using `molecule/default/prepare.yml`:
@@ -31,9 +31,9 @@ The machine needs to be prepared in CI this is done using `molecule/default/prep
 
   roles:
     - role: robertdebock.bootstrap
-    - role: robertdebock.buildtools
-    - role: robertdebock.ca_certificates
-    - role: robertdebock.python_pip
+    # - role: robertdebock.buildtools
+    # - role: robertdebock.ca_certificates
+    # - role: robertdebock.python_pip
     - role: robertdebock.users
       users_group_list:
         - name: lool
@@ -43,13 +43,13 @@ The machine needs to be prepared in CI this is done using `molecule/default/prep
           home: /opt/lool
           shell: /usr/sbin/nologin
           system: yes
-    - role: robertdebock.openssl
-      openssl_file_owner: lool
-      openssl_key_directory: /etc/loolwsd
-      openssl_crt_directory: /etc/loolwsd
-      openssl_items:
-        - name: loolwsd
-          common_name: code.example.com
+    # - role: robertdebock.openssl
+    #   openssl_file_owner: lool
+    #   openssl_key_directory: /etc/loolwsd
+    #   openssl_crt_directory: /etc/loolwsd
+    #   openssl_items:
+    #     - name: loolwsd
+    #       common_name: code.example.com
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
@@ -70,6 +70,13 @@ collabora_online_ssl_cert: /etc/loolwsd/loolwsd.crt
 collabora_online_ssl_key: /etc/loolwsd/loolwsd.key
 collabora_online_ssl_ca: /etc/loolwsd/loolwsd.keycrt
 collabora_online_ciphers: "ALL:!ADH:!LOW:!EXP:!MD5:@STRENGTH"
+
+# You can manage the mounting feature. Either "false" or "true". (As a string.)
+collabora_online_mount_jail_tree: "true"
+
+# Set the log level. Can be 0 through 8, none or "fatal", "critical", "error",
+# "warning", "notice", "information", "debug", "trace".
+collabora_online_log_level: warning
 ```
 
 ## [Requirements](#requirements)
@@ -83,10 +90,6 @@ The following roles are used to prepare a system. You may choose to prepare your
 | Requirement | GitHub | GitLab |
 |-------------|--------|--------|
 |[robertdebock.bootstrap](https://galaxy.ansible.com/robertdebock/bootstrap)|[![Build Status GitHub](https://github.com/robertdebock/ansible-role-bootstrap/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-bootstrap/actions)|[![Build Status GitLab ](https://gitlab.com/robertdebock/ansible-role-bootstrap/badges/master/pipeline.svg)](https://gitlab.com/robertdebock/ansible-role-bootstrap)|
-|[robertdebock.buildtools](https://galaxy.ansible.com/robertdebock/buildtools)|[![Build Status GitHub](https://github.com/robertdebock/ansible-role-buildtools/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-buildtools/actions)|[![Build Status GitLab ](https://gitlab.com/robertdebock/ansible-role-buildtools/badges/master/pipeline.svg)](https://gitlab.com/robertdebock/ansible-role-buildtools)|
-|[robertdebock.ca_certificates](https://galaxy.ansible.com/robertdebock/ca_certificates)|[![Build Status GitHub](https://github.com/robertdebock/ansible-role-ca_certificates/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-ca_certificates/actions)|[![Build Status GitLab ](https://gitlab.com/robertdebock/ansible-role-ca_certificates/badges/master/pipeline.svg)](https://gitlab.com/robertdebock/ansible-role-ca_certificates)|
-|[robertdebock.openssl](https://galaxy.ansible.com/robertdebock/openssl)|[![Build Status GitHub](https://github.com/robertdebock/ansible-role-openssl/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-openssl/actions)|[![Build Status GitLab ](https://gitlab.com/robertdebock/ansible-role-openssl/badges/master/pipeline.svg)](https://gitlab.com/robertdebock/ansible-role-openssl)|
-|[robertdebock.python_pip](https://galaxy.ansible.com/robertdebock/python_pip)|[![Build Status GitHub](https://github.com/robertdebock/ansible-role-python_pip/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-python_pip/actions)|[![Build Status GitLab ](https://gitlab.com/robertdebock/ansible-role-python_pip/badges/master/pipeline.svg)](https://gitlab.com/robertdebock/ansible-role-python_pip)|
 |[robertdebock.users](https://galaxy.ansible.com/robertdebock/users)|[![Build Status GitHub](https://github.com/robertdebock/ansible-role-users/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-users/actions)|[![Build Status GitLab ](https://gitlab.com/robertdebock/ansible-role-users/badges/master/pipeline.svg)](https://gitlab.com/robertdebock/ansible-role-users)|
 
 ## [Context](#context)
