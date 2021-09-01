@@ -22,3 +22,11 @@
     quiet: yes
   when:
     - collabora_online_ssl_enabled
+
+- name: test if collabora_online_mount_jail_tree is set correctly
+  ansible.builtin.assert:
+    that:
+      - collabora_online_mount_jail_tree is defined
+      - collabora_online_mount_jail_tree is string
+      - collabora_online_mount_jail_tree in [ "false", "true" ]
+    quiet: yes
