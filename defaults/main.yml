@@ -7,6 +7,10 @@ collabora_online_type: code
 # In case "LICENSED" is set for `collabora_online_type`, a version is required.
 collabora_online_version: "6.4"
 
+# When using `collabora_online_type: licensed` and running on RHEL systems, you
+# need to set this variable. Get it from https://support.collaboraoffice.com/ .
+# collabora_online_secret_key: "abc-def-ghi-jkl-mno"
+
 # Manage SSL capabilities, either "false" or "true". (As a string.)
 collabora_online_ssl_enabled: "false"
 

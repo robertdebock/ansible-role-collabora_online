@@ -17,6 +17,10 @@ argument_specs:
         type: "str"
         default: "6.4"
         description: "The version to install, only required for licensed installation."
+      collabora_online_secret_key:
+        type: "str"
+        required: no
+        description: "The secret key as handed out by Collabora."
       collabora_online_ssl_enabled:
         type: "str"
         default: false
