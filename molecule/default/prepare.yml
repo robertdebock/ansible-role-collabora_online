@@ -6,9 +6,7 @@
 
   roles:
     - role: robertdebock.bootstrap
-    # - role: robertdebock.buildtools
     - role: robertdebock.ca_certificates
-    # - role: robertdebock.python_pip
     - role: robertdebock.users
       users_group_list:
         - name: lool
@@ -18,10 +16,3 @@
           home: /opt/lool
           shell: /usr/sbin/nologin
           system: yes
-    # - role: robertdebock.openssl
-    #   openssl_file_owner: lool
-    #   openssl_key_directory: /etc/loolwsd
-    #   openssl_crt_directory: /etc/loolwsd
-    #   openssl_items:
-    #     - name: loolwsd
-    #       common_name: code.example.com

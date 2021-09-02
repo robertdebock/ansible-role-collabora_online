@@ -6,4 +6,3 @@
 
   roles:
     - role: ansible-role-collabora_online
-      # collabora_online_ssl_enabled: "true"

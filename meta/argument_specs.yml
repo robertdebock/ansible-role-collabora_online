@@ -6,6 +6,17 @@ argument_specs:
     description: "Collabora Online Development Edition (CODE) installation an configuration."
     author: Robert de Bock
     options:
+      collabora_online_type:
+        type: "str"
+        default: code
+        description: "The type of installation."
+        choices:
+          - "code"
+          - "licensed"
+      collabora_online_version:
+        type: "str"
+        default: "6.4"
+        description: "The version to install, only required for licensed installation."
       collabora_online_ssl_enabled:
         type: "str"
         default: false

@@ -1,6 +1,12 @@
 ---
 # defaults file for collabora_online
 
+# You can set the type of installation; either "code" or "licensed".
+collabora_online_type: code
+
+# In case "LICENSED" is set for `collabora_online_type`, a version is required.
+collabora_online_version: "6.4"
+
 # Manage SSL capabilities, either "false" or "true". (As a string.)
 collabora_online_ssl_enabled: "false"
 

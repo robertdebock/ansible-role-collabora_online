@@ -1,5 +1,22 @@
 ---
 
+- name: test if collabora_online_type is set correctly
+  ansible.builtin.assert:
+    that:
+      - collabora_online_type is defined
+      - collabora_online_type is string
+      - collabora_online_type in [ "code", "licensed" ]
+    quiet: yes
+
+- name: test if collabora_online_version is set correctly
+  ansible.builtin.assert:
+    that:
+      - collabora_online_version is defined
+      - collabora_online_version is string
+    quiet: yes
+  when:
+    - collabora_online_type == "licensed"
+
 - name: test if collabora_online_ssl_enabled is set correctly
   ansible.builtin.assert:
     that:
