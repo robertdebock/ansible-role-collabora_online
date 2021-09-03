@@ -25,6 +25,14 @@
   when:
     - collabora_online_secret_key is defined
 
+- name: test if collabora_online_allowed_languages is set correctly
+  ansible.builtin.assert:
+    that:
+      - collabora_online_allowed_languages is string
+    quiet: yes
+  when:
+    - collabora_online_allowed_languages is defined
+
 - name: test if collabora_online_ssl_enabled is set correctly
   ansible.builtin.assert:
     that:

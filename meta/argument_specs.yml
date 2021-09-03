@@ -21,6 +21,10 @@ argument_specs:
         type: "str"
         required: no
         description: "The secret key as handed out by Collabora."
+      collabora_online_allowed_languages:
+        type: "str"
+        default: "de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"
+        description: "The languages allowed"
       collabora_online_ssl_enabled:
         type: "str"
         default: false

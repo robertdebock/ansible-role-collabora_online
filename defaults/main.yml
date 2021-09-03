@@ -11,6 +11,9 @@ collabora_online_version: "6.4"
 # need to set this variable. Get it from https://support.collaboraoffice.com/ .
 # collabora_online_secret_key: "abc-def-ghi-jkl-mno"
 
+# The languages allowed.
+# collabora_online_allowed_languages: "de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru">de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"
+
 # Manage SSL capabilities, either "false" or "true". (As a string.)
 collabora_online_ssl_enabled: "false"
 
