@@ -5,7 +5,7 @@
     <!-- Note: 'default' attributes are used to document a setting's default value as well as to use as fallback. -->
     <!-- Note: When adding a new entry, a default must be set in WSD in case the entry is missing upon deployment. -->
 
-    <allowed_languages desc="List of supported languages of Writing Aids (spell checker, grammar checker, thesaurus, hyphenation) on this instance. Allowing too many has negative effect on startup performance." default="de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru">{{ collabora_online_allowed_languages | default(omit) }}</allowed_languages>
+    <allowed_languages desc="List of supported languages of Writing Aids (spell checker, grammar checker, thesaurus, hyphenation) on this instance. Allowing too many has negative effect on startup performance." default="de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru">{% if collabora_online_allowed_languages is defined %}{{ collabora_online_allowed_languages }}{% endif %}</allowed_languages>
 
     <sys_template_path desc="Path to a template tree with shared libraries etc to be used as source for chroot jails for child processes." type="path" relative="true" default="systemplate"></sys_template_path>
     <child_root_path desc="Path to the directory under which the chroot jails for the child processes will be created. Should be on the same file system as systemplate and lotemplate. Must be an empty directory." type="path" relative="true" default="jails"></child_root_path>
@@ -183,8 +183,8 @@
     <admin_console desc="Web admin console settings.">
         <enable desc="Enable the admin console functionality" type="bool" default="true">true</enable>
         <enable_pam desc="Enable admin user authentication with PAM" type="bool" default="false">false</enable_pam>
-        <username desc="The username of the admin console. Ignored if PAM is enabled.">{{ collabora_online_admin_username | default(omit) }}</username>
-        <password desc="The password of the admin console. Deprecated on most platforms. Instead, use PAM or loolconfig to set up a secure password.">{{ collabora_online_admin_password | default(omit) }}</password>
+        <username desc="The username of the admin console. Ignored if PAM is enabled.">{% if collabora_online_admin_username is defined %}{{ collabora_online_admin_username }}{% endif %}</username>
+        <password desc="The password of the admin console. Deprecated on most platforms. Instead, use PAM or loolconfig to set up a secure password.">{% if collabora_online_admin_password is defined %}{{ collabora_online_admin_password }}{% endif %}</password>
     </admin_console>
 
     <monitors desc="Addresses of servers we connect to on start for monitoring">
