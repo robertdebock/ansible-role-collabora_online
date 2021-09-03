@@ -18,7 +18,6 @@ This example is taken from `molecule/default/converge.yml` and is tested on each
 
   roles:
     - role: robertdebock.collabora_online
-      # collabora_online_ssl_enabled: "true"
 ```
 
 The machine needs to be prepared in CI this is done using `molecule/default/prepare.yml`:
@@ -31,9 +30,7 @@ The machine needs to be prepared in CI this is done using `molecule/default/prep
 
   roles:
     - role: robertdebock.bootstrap
-    # - role: robertdebock.buildtools
     - role: robertdebock.ca_certificates
-    # - role: robertdebock.python_pip
     - role: robertdebock.users
       users_group_list:
         - name: lool
@@ -43,13 +40,6 @@ The machine needs to be prepared in CI this is done using `molecule/default/prep
           home: /opt/lool
           shell: /usr/sbin/nologin
           system: yes
-    # - role: robertdebock.openssl
-    #   openssl_file_owner: lool
-    #   openssl_key_directory: /etc/loolwsd
-    #   openssl_crt_directory: /etc/loolwsd
-    #   openssl_items:
-    #     - name: loolwsd
-    #       common_name: code.example.com
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
@@ -60,6 +50,19 @@ These variables are set in `defaults/main.yml`:
 ```yaml
 ---
 # defaults file for collabora_online
+
+# You can set the type of installation; either "code" or "licensed".
+collabora_online_type: code
+
+# In case "LICENSED" is set for `collabora_online_type`, a version is required.
+collabora_online_version: "6.4"
+
+# When using `collabora_online_type: licensed` and running on RHEL systems, you
+# need to set this variable. Get it from https://support.collaboraoffice.com/ .
+# collabora_online_secret_key: "abc-def-ghi-jkl-mno"
+
+# The languages allowed.
+# collabora_online_allowed_languages: "de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"
 
 # Manage SSL capabilities, either "false" or "true". (As a string.)
 collabora_online_ssl_enabled: "false"
@@ -77,6 +80,12 @@ collabora_online_mount_jail_tree: "true"
 # Set the log level. Can be 0 through 8, none or "fatal", "critical", "error",
 # "warning", "notice", "information", "debug", "trace".
 collabora_online_log_level: warning
+
+# Set the username for the admin console.
+collabora_online_admin_username: "admin"
+
+# Set the password for the admin console.
+collabora_online_admin_password: "50m3-53cu23-p455w02d."
 ```
 
 ## [Requirements](#requirements)
@@ -90,6 +99,7 @@ The following roles are used to prepare a system. You may choose to prepare your
 | Requirement | GitHub | GitLab |
 |-------------|--------|--------|
 |[robertdebock.bootstrap](https://galaxy.ansible.com/robertdebock/bootstrap)|[![Build Status GitHub](https://github.com/robertdebock/ansible-role-bootstrap/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-bootstrap/actions)|[![Build Status GitLab ](https://gitlab.com/robertdebock/ansible-role-bootstrap/badges/master/pipeline.svg)](https://gitlab.com/robertdebock/ansible-role-bootstrap)|
+|[robertdebock.ca_certificates](https://galaxy.ansible.com/robertdebock/ca_certificates)|[![Build Status GitHub](https://github.com/robertdebock/ansible-role-ca_certificates/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-ca_certificates/actions)|[![Build Status GitLab ](https://gitlab.com/robertdebock/ansible-role-ca_certificates/badges/master/pipeline.svg)](https://gitlab.com/robertdebock/ansible-role-ca_certificates)|
 |[robertdebock.users](https://galaxy.ansible.com/robertdebock/users)|[![Build Status GitHub](https://github.com/robertdebock/ansible-role-users/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-users/actions)|[![Build Status GitLab ](https://gitlab.com/robertdebock/ansible-role-users/badges/master/pipeline.svg)](https://gitlab.com/robertdebock/ansible-role-users)|
 
 ## [Context](#context)
