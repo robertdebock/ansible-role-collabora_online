@@ -9,10 +9,10 @@
     - role: robertdebock.ca_certificates
     - role: robertdebock.users
       users_group_list:
-        - name: lool
+        - name: cool
       users_user_list:
-        - name: lool
-          group: lool
-          home: /opt/lool
+        - name: cool
+          group: cool
+          home: /opt/cool
           shell: /usr/sbin/nologin
           system: yes
