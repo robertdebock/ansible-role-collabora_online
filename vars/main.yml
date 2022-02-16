@@ -27,19 +27,19 @@ _collabora_online_packages:
     default: []
     Debian:
       - dirmngr
-      - loolwsd
+      - coolwsd
       - code-brand
     RedHat:
-      - loolwsd
+      - coolwsd
       - CODE-brand
   licensed:
     default: []
     Debian:
       - dirmngr
-      - loolwsd
+      - coolwsd
       - collabora-online-brand
     RedHat:
-      - loolwsd
+      - coolwsd
       - collabora-online-brand
 
 collabora_online_packages: "{{ _collabora_online_packages[collabora_online_type][ansible_os_family] | default(_collabora_online_packages[collabora_online_type]['default'] ) }}"
