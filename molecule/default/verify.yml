@@ -25,7 +25,7 @@
 
     - name: check if admin.html is available on https://localhost:9980
       ansible.builtin.uri:
-        url: "http://127.0.0.1:9980/loleaflet/dist/admin/admin.html"
+        url: "http://127.0.0.1:9980/browser/dist/admin/admin.html"
         return_content: yes
         validate_certs: no
         status_code:
