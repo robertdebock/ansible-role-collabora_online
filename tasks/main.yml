@@ -41,7 +41,7 @@
 
 - name: configure collabora online
   ansible.builtin.template:
-    src: coolwsd.xml.j2
+    src: "{{ collabora_online_configuration_template }}"
     dest: /etc/coolwsd/coolwsd.xml
     owner: cool
     group: root
