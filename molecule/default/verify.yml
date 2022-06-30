@@ -9,7 +9,7 @@
       ansible.builtin.wait_for:
         port: 9980
 
-    - name: check if "OK" is returned from https://localhost:9980
+    - name: "check if 'OK' is returned from https://localhost:9980"
       ansible.builtin.uri:
         url: "http://127.0.0.1:9980"
         return_content: yes
@@ -17,13 +17,13 @@
       register: collabora_online_test_one
       failed_when: "'OK' not in collabora_online_test_one.content"
 
-    - name: check if hosting/discovery is available on https://localhost:9980
+    - name: "check if hosting/discovery is available on https://localhost:9980"
       ansible.builtin.uri:
         url: "http://127.0.0.1:9980/hosting/discovery"
         return_content: yes
         validate_certs: no
 
-    - name: check if admin.html is available on https://localhost:9980
+    - name: "check if admin.html is available on https://localhost:9980"
       ansible.builtin.uri:
         url: "http://127.0.0.1:9980/browser/dist/admin/admin.html"
         return_content: yes
