@@ -5,4 +5,4 @@
 repository:
   description: Install and configure Collabora Online CODE on your system.
   homepage: https://robertdebock.nl/
-  topics: collaboraonline, ansible, molecule, tox, playbook, hacktoberfest
+  topics: collaboraonline, ansible, molecule, tox, playbook
