@@ -5,11 +5,11 @@
   gather_facts: no
 
   tasks:
-    - name: check if port 9980 is open
+    - name: Check if port 9980 is open
       ansible.builtin.wait_for:
         port: 9980
 
-    - name: access web url
+    - name: Access web url
       block:
         - name: "check if 'OK' is returned from https://localhost:9980"
           ansible.builtin.uri:
@@ -19,7 +19,7 @@
           register: collabora_online_test_one
           failed_when: "'OK' not in collabora_online_test_one.content"
       rescue:
-        - name: show registered variable
+        - name: Show registered variable
           ansible.builtin.debug:
             msg: "collabora_online_test_one: {{ collabora_online_test_one }}"
 
