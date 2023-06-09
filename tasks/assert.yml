@@ -13,6 +13,7 @@
     that:
       - collabora_online_version is defined
       - collabora_online_version is string
+      - collabora_online_version is not none
     quiet: yes
   when:
     - collabora_online_type == "licensed"
@@ -21,6 +22,7 @@
   ansible.builtin.assert:
     that:
       - collabora_online_secret_key is string
+      - collabora_online_secret_key is not none
     quiet: yes
   when:
     - collabora_online_secret_key is defined
@@ -29,6 +31,7 @@
   ansible.builtin.assert:
     that:
       - collabora_online_allowed_languages is string
+      - collabora_online_allowed_languages is not none
     quiet: yes
   when:
     - collabora_online_allowed_languages is defined
@@ -46,12 +49,16 @@
     that:
       - collabora_online_ssl_cert is defined
       - collabora_online_ssl_cert is string
+      - collabora_online_ssl_cert is not none
       - collabora_online_ssl_key is defined
       - collabora_online_ssl_key is string
+      - collabora_online_ssl_key is not none
       - collabora_online_ssl_ca is defined
       - collabora_online_ssl_ca is string
+      - collabora_online_ssl_ca is not none
       - collabora_online_ciphers is defined
       - collabora_online_ciphers is string
+      - collabora_online_ciphers is not none
     quiet: yes
   when:
     - collabora_online_ssl_enabled
@@ -77,7 +84,10 @@
     that:
       - collabora_online_admin_username is defined
       - collabora_online_admin_username is string
+      - collabora_online_admin_username is not none
       - collabora_online_admin_password is defined
+      - collabora_online_admin_password is string
+      - collabora_online_admin_password is not none
     quiet: yes
 
 - name: assert | Test if collabora_online_admin_password is set correctly
@@ -85,5 +95,8 @@
     that:
       - collabora_online_admin_password is defined
       - collabora_online_admin_password is string
+      - collabora_online_admin_password is not none
       - collabora_online_admin_username is defined
+      - collabora_online_admin_username is string
+      - collabora_online_admin_username is not none
     quiet: yes
