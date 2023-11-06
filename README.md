@@ -2,9 +2,9 @@
 
 Install and configure Collabora Online CODE on your system.
 
-|GitHub|GitLab|Quality|Downloads|Version|
-|------|------|-------|---------|-------|
-|[![github](https://github.com/robertdebock/ansible-role-collabora_online/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-collabora_online/actions)|[![gitlab](https://gitlab.com/robertdebock-iac/ansible-role-collabora_online/badges/master/pipeline.svg)](https://gitlab.com/robertdebock-iac/ansible-role-collabora_online)|[![quality](https://img.shields.io/ansible/quality/55445)](https://galaxy.ansible.com/robertdebock/collabora_online)|[![downloads](https://img.shields.io/ansible/role/d/55445)](https://galaxy.ansible.com/robertdebock/collabora_online)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-collabora_online.svg)](https://github.com/robertdebock/ansible-role-collabora_online/releases/)|
+|GitHub|GitLab|Downloads|Version|
+|------|------|---------|-------|
+|[![github](https://github.com/robertdebock/ansible-role-collabora_online/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-collabora_online/actions)|[![gitlab](https://gitlab.com/robertdebock-iac/ansible-role-collabora_online/badges/master/pipeline.svg)](https://gitlab.com/robertdebock-iac/ansible-role-collabora_online)|[![downloads](https://img.shields.io/ansible/role/d/24462)](https://galaxy.ansible.com/robertdebock/collabora_online)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-collabora_online.svg)](https://github.com/robertdebock/ansible-role-collabora_online/releases/)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -129,7 +129,7 @@ The minimum version of Ansible required is 2.12, tests have been done to:
 - The current version.
 - The development version.
 
-If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-collabora_online/issues)
+If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-collabora_online/issues).
 
 ## [License](#license)
 
