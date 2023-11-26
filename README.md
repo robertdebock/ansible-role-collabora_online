@@ -1,4 +1,4 @@
-# Ansible role [collabora_online](#collabora_online)
+# [Ansible role collabora_online](#collabora_online)
 
 Install and configure Collabora Online CODE on your system.
 
