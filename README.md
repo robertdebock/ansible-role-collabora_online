@@ -34,9 +34,9 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
     - role: robertdebock.bootstrap
     - role: robertdebock.ca_certificates
     - role: robertdebock.users
-      users_group_list:
+      users_groups:
         - name: cool
-      users_user_list:
+      users:
         - name: cool
           group: cool
           home: /opt/cool
