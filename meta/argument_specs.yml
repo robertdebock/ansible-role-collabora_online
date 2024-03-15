@@ -27,7 +27,7 @@ argument_specs:
         description: "The languages allowed."
       collabora_online_ssl_enabled:
         type: "str"
-        default: false
+        default: no
         description: "Configure SSL? This is a string, not a boolean."
         choices:
           - "false"
