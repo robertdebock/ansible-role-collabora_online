@@ -1,8 +1,8 @@
 ---
 - name: Prepare
   hosts: all
-  become: yes
-  gather_facts: no
+  become: true
+  gather_facts: false
 
   roles:
     - role: robertdebock.bootstrap
@@ -15,4 +15,4 @@
           group: cool
           home: /opt/cool
           shell: /usr/sbin/nologin
-          system: yes
+          system: true

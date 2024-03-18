@@ -1,8 +1,8 @@
 ---
 - name: Verify
   hosts: all
-  become: no
-  gather_facts: no
+  become: false
+  gather_facts: false
 
   tasks:
     - name: Check if port 9980 is open
@@ -14,8 +14,8 @@
         - name: "check if 'OK' is returned from https://localhost:9980"
           ansible.builtin.uri:
             url: "http://127.0.0.1:9980"
-            return_content: yes
-            validate_certs: no
+            return_content: true
+            validate_certs: false
           register: collabora_online_test_one
           failed_when: "'OK' not in collabora_online_test_one.content"
       rescue:
@@ -26,13 +26,13 @@
     - name: "check if hosting/discovery is available on https://localhost:9980"
       ansible.builtin.uri:
         url: "http://127.0.0.1:9980/hosting/discovery"
-        return_content: yes
-        validate_certs: no
+        return_content: true
+        validate_certs: false
 
     - name: "check if admin.html is available on https://localhost:9980"
       ansible.builtin.uri:
         url: "http://127.0.0.1:9980/browser/dist/admin/admin.html"
-        return_content: yes
-        validate_certs: no
+        return_content: true
+        validate_certs: false
         status_code:
           - 401
