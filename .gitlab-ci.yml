@@ -13,9 +13,7 @@ molecule:
   parallel:
     matrix:
       - image: "enterpriselinux"
-        tag: "7"
-      - image: "enterpriselinux"
-        tag: "8"
+        tag: "latest"
       - image: "ubuntu"
         tag: "focal"
 
