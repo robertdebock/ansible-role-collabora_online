@@ -1,0 +1,13 @@
+digraph PhiloDilemma {
+  label = "Robert de Bock" ;
+  overlap=false
+  {
+    "collabora_online" [fillcolor=yellow style=filled penwidth=3]
+    "robertdebock.bootstrap" [fillcolor=green style=filled]
+    "robertdebock.ca_certificates" [fillcolor=green style=filled]
+    "robertdebock.users" [fillcolor=green style=filled]
+  }
+  "collabora_online" -> "robertdebock.bootstrap"
+  "collabora_online" -> "robertdebock.ca_certificates"
+  "collabora_online" -> "robertdebock.users"
+}
