@@ -21,7 +21,7 @@ collabora_online_key: "{{ _collabora_online_key[collabora_online_type][ansible_o
 
 _collabora_online_repo:
   code:
-    Debian: "[signed-by=/usr/share/keyrings/collaboraonline-release-keyring.gpg] {{ collabora_online_base_url }}/{{ collabora_online_type | upper }}-{{ ansible_distribution | lower }}{{ ansible_distribution_major_version }}"
+    Debian: "[signed-by=/usr/share/keyrings/collaboraonline-release-keyring.gpg] {{ collabora_online_base_url }}/{{ collabora_online_type | upper }}-{{ ansible_distribution | lower }}{{ [ansible_distribution_major_version | int, 11]|min }}"
     Ubuntu-16: "{{ collabora_online_base_url }}/{{ collabora_online_type | upper }}"
     Ubuntu-18: "{{ collabora_online_base_url }}/{{ collabora_online_type | upper }}-{{ ansible_distribution | lower }}1804"
     Ubuntu-20: "{{ collabora_online_base_url }}/{{ collabora_online_type | upper }}-{{ ansible_distribution | lower }}2004"
