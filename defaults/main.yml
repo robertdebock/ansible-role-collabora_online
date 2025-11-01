@@ -27,6 +27,10 @@ collabora_online_ciphers: "ALL:!ADH:!LOW:!EXP:!MD5:@STRENGTH"
 # You can manage the mounting feature. Either "false" or "true". (As a string.)
 collabora_online_mount_jail_tree: "true"
 
+# Ability to limit to IPv4/6 and bind to localhost/any
+collabora_proto: "all"
+collabora_listen: "any"
+
 # Set the log level. Can be 0 through 8, none or "fatal", "critical", "error",
 # "warning", "notice", "information", "debug", "trace".
 collabora_online_log_level: warning
