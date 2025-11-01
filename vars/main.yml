@@ -2,7 +2,7 @@
 # vars file for collabora_online
 
 _collabora_online_key:
-  Debian: 0C54D189F4BA284D
+  Debian: sha256:b77f959916c0ec2072b72860d80f9c066910d9bddd2f69534b488f4b4d5ca4dd
   RedHat: "https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-centos7/repodata/repomd.xml.key"
 
 collabora_online_key: "{{ _collabora_online_key[ansible_os_family] }}"
@@ -11,7 +11,7 @@ collabora_online_base_url: "https://www.collaboraoffice.com/repos/CollaboraOnlin
 
 _collabora_online_repo:
   code:
-    Debian: "{{ collabora_online_base_url }}/{{ collabora_online_type | upper }}-{{ ansible_distribution | lower }}{{ ansible_distribution_major_version }}"
+    Debian: "[signed-by=/usr/share/keyrings/collaboraonline-release-keyring.gpg] {{ collabora_online_base_url }}/{{ collabora_online_type | upper }}-{{ ansible_distribution | lower }}{{ ansible_distribution_major_version }}"
     Ubuntu-16: "{{ collabora_online_base_url }}/{{ collabora_online_type | upper }}"
     Ubuntu-18: "{{ collabora_online_base_url }}/{{ collabora_online_type | upper }}-{{ ansible_distribution | lower }}1804"
     Ubuntu-20: "{{ collabora_online_base_url }}/{{ collabora_online_type | upper }}-{{ ansible_distribution | lower }}2004"
