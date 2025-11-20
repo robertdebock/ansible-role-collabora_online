@@ -11,10 +11,11 @@
   when:
     - ansible_pkg_mgr == "apt"
   block:
-    - name: Add collabora key (apt)
-      ansible.builtin.apt_key:
-        keyserver: keyserver.ubuntu.com
-        id: "{{ collabora_online_key }}"
+    - name: (Debian/Ubuntu) Add NGINX signing key
+      ansible.builtin.get_url:
+        url: "https://www.collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
+        dest: /usr/share/keyrings/collaboraonline-release-keyring.gpg
+        checksum: "{{ collabora_online_key }}"
 
     - name: Add repository (apt)
       ansible.builtin.apt_repository:
