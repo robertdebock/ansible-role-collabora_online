@@ -67,11 +67,11 @@ collabora_online_version: "6.4"
 # The languages allowed.
 # collabora_online_allowed_languages: "de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"
 
-# Manage SSL capabilities, either "false" or "true". (As a string.)
-collabora_online_ssl_enabled: "false"
+# Manage SSL capabilities, either false or true.
+collabora_online_ssl_enabled: false
 
 # These settings become relevant when `collabora_online_ssl_enabled` is set to
-# `true`.
+# true.
 collabora_online_ssl_cert: /etc/coolwsd/coolwsd.crt
 collabora_online_ssl_key: /etc/coolwsd/coolwsd.key
 collabora_online_ssl_ca: /etc/coolwsd/coolwsd.keycrt

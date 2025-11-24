@@ -26,12 +26,9 @@ argument_specs:
         required: false
         description: "The languages allowed."
       collabora_online_ssl_enabled:
-        type: "str"
+        type: "bool"
         default: false
-        description: "Configure SSL? This is a string, not a boolean."
-        choices:
-          - "false"
-          - "true"
+        description: "Configure SSL?"
       collabora_online_ssl_cert:
         type: "str"
         default: /etc/coolwsd/cert.pem

@@ -40,8 +40,7 @@
   ansible.builtin.assert:
     that:
       - collabora_online_ssl_enabled is defined
-      - collabora_online_ssl_enabled is string
-      - collabora_online_ssl_enabled in [ "false", "true" ]
+      - collabora_online_ssl_enabled is boolean
     quiet: true
 
 - name: assert | Test collabora_online_ssl_*
