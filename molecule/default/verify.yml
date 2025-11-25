@@ -23,7 +23,7 @@
           ansible.builtin.debug:
             msg: "collabora_online_test_one: {{ collabora_online_test_one }}"
 
-    - name: "Dheck if hosting/discovery is available on https://localhost:9980"
+    - name: "Check if hosting/discovery is available on https://localhost:9980"
       ansible.builtin.uri:
         url: "http://127.0.0.1:9980/hosting/discovery"
         return_content: true

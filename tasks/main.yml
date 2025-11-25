@@ -11,15 +11,27 @@
   when:
     - ansible_pkg_mgr == "apt"
   block:
-    - name: Add collabora key (apt)
-      ansible.builtin.apt_key:
-        keyserver: keyserver.ubuntu.com
-        id: "{{ collabora_online_key }}"
+    - name: Ensure keyrings directory exists
+      ansible.builtin.file:
+        path: /usr/share/keyrings
+        state: directory
+        mode: "0755"
+
+    - name: Download collabora key (apt)
+      ansible.builtin.get_url:
+        url: "{{ collabora_online_key }}"
+        dest: /usr/share/keyrings/collaboraonline-release-keyring.gpg
+        mode: "0644"
 
     - name: Add repository (apt)
-      ansible.builtin.apt_repository:
-        filename: collabora
-        repo: "deb {{ collabora_online_repo }} ./"
+      ansible.builtin.copy:
+        dest: /etc/apt/sources.list.d/collaboraonline.sources
+        content: |
+          Types: deb
+          URIs: {{ collabora_online_repo }}
+          Suites: ./
+          Signed-By: /usr/share/keyrings/collaboraonline-release-keyring.gpg
+        mode: "0644"
 
 - name: Prepare redhat
   when:
