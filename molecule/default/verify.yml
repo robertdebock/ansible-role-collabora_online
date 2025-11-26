@@ -17,6 +17,10 @@
             return_content: true
             validate_certs: false
           register: collabora_online_test_one
+          until:
+            - "'OK' in collabora_online_test_one.content"
+          retries: 10
+          delay: 3
           failed_when: "'OK' not in collabora_online_test_one.content"
       rescue:
         - name: Show registered variable
@@ -28,6 +32,11 @@
         url: "http://127.0.0.1:9980/hosting/discovery"
         return_content: true
         validate_certs: false
+      register: collabora_online_test_two
+      until:
+        - collabora_online_test_two.status == 200
+      retries: 10
+      delay: 3
 
     - name: "Check if admin.html is available on https://localhost:9980"
       ansible.builtin.uri:
@@ -36,3 +45,8 @@
         validate_certs: false
         status_code:
           - 401
+      register: collabora_online_test_three
+      until:
+        - collabora_online_test_three.status == 401
+      retries: 10
+      delay: 3
