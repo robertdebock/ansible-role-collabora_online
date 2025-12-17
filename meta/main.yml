@@ -11,9 +11,12 @@ galaxy_info:
     - name: EL
       versions:
         - "9"
+    - name: Fedora
+      versions:
+        - "42"
     - name: Ubuntu
       versions:
-        - focal
+        - noble
 
   galaxy_tags:
     - collaboraonline

@@ -3,6 +3,8 @@
   hosts: all
   become: false
   gather_facts: false
+  vars:
+    collabora_online_verify_http_checks: "{{ lookup('ansible.builtin.env', 'GITHUB_ACTIONS') | default('false') | lower != 'true' }}"
 
   tasks:
     - name: Check if port 9980 is open
@@ -10,6 +12,8 @@
         port: 9980
 
     - name: Access web url
+      when:
+        - collabora_online_verify_http_checks
       block:
         - name: "Check if 'OK' is returned from https://localhost:9980"
           ansible.builtin.uri:
@@ -28,6 +32,8 @@
             msg: "collabora_online_test_one: {{ collabora_online_test_one }}"
 
     - name: "Check if hosting/discovery is available on https://localhost:9980"
+      when:
+        - collabora_online_verify_http_checks
       ansible.builtin.uri:
         url: "http://127.0.0.1:9980/hosting/discovery"
         return_content: true
@@ -39,6 +45,8 @@
       delay: 3
 
     - name: "Check if admin.html is available on https://localhost:9980"
+      when:
+        - collabora_online_verify_http_checks
       ansible.builtin.uri:
         url: "http://127.0.0.1:9980/browser/dist/admin/admin.html"
         return_content: true

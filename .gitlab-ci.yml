@@ -22,7 +22,7 @@ molecule:
       - image: "enterpriselinux"
         tag: "latest"
       - image: "ubuntu"
-        tag: "focal"
+        tag: "latest"
 
 galaxy:
   image: python:3.13
