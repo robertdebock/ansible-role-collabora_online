@@ -54,6 +54,3 @@ _collabora_online_packages:
 
 collabora_online_packages: "{{ _collabora_online_packages[collabora_online_type][ansible_os_family] | default(_collabora_online_packages[collabora_online_type]['default']) }}"
 collabora_online_ssl_termination: true
-collabora_additional_wopi_rules: ""
-# Example additional WOPI rule to allow your Nextcloud server to access this server:
-# collabora_additional_wopi_rules: <host desc="Regex pattern of hostname to allow or deny." allow="true">nextcloud.{{ ansible_domain }}</host>
