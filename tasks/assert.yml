@@ -60,7 +60,7 @@
       - collabora_online_ciphers is not none
     quiet: true
   when:
-    - collabora_online_ssl_enabled
+    - collabora_online_ssl_enabled | bool
 
 - name: assert | Test collabora_online_mount_jail_tree
   ansible.builtin.assert:

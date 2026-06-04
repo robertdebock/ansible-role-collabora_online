@@ -23,6 +23,12 @@
         dest: /usr/share/keyrings/collaboraonline-release-keyring.gpg
         mode: "0644"
 
+    - name: (Debian/Ubuntu) Add NGINX signing key
+      ansible.builtin.get_url:
+        url: "https://www.collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
+        dest: /usr/share/keyrings/collaboraonline-release-keyring.gpg
+        checksum: "{{ collabora_online_key_checksum }}"
+
     - name: Add repository (apt)
       ansible.builtin.copy:
         dest: /etc/apt/sources.list.d/collaboraonline.sources
@@ -32,6 +38,10 @@
           Suites: ./
           Signed-By: /usr/share/keyrings/collaboraonline-release-keyring.gpg
         mode: "0644"
+
+    - name: Update apt sources to pull in the new apt repo
+      ansible.builtin.apt:
+        update_cache: true
 
 - name: Prepare redhat
   when:

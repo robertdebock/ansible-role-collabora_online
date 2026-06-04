@@ -27,6 +27,10 @@ collabora_online_ciphers: "ALL:!ADH:!LOW:!EXP:!MD5:@STRENGTH"
 # You can manage the mounting feature. Either "false" or "true". (As a string.)
 collabora_online_mount_jail_tree: "true"
 
+# Ability to limit to IPv4/6 and bind to localhost/any
+collabora_proto: "all"
+collabora_listen: "any"
+
 # Set the log level. Can be 0 through 8, none or "fatal", "critical", "error",
 # "warning", "notice", "information", "debug", "trace".
 collabora_online_log_level: warning
@@ -38,3 +42,7 @@ collabora_online_admin_username: "admin"
 collabora_online_admin_password: "50m3-53cu23-p455w02d."
 
 collabora_online_configuration_template: "coolwsd.xml.j2"
+
+collabora_additional_wopi_rules: ""
+# Example additional WOPI rule to allow your Nextcloud server to access this server:
+# collabora_additional_wopi_rules: <host desc="Regex pattern of hostname to allow or deny." allow="true">nextcloud.{{ ansible_domain }}</host>
