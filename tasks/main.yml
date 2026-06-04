@@ -9,7 +9,7 @@
 
 - name: Prepare debian
   when:
-    - ansible_pkg_mgr == "apt"
+    - ansible_facts['pkg_mgr'] == "apt"
   block:
     - name: Ensure keyrings directory exists
       ansible.builtin.file:
@@ -45,7 +45,7 @@
 
 - name: Prepare redhat
   when:
-    - ansible_pkg_mgr in [ "dnf", "yum", "dnf5" ]
+    - ansible_facts['pkg_mgr'] in [ "dnf", "yum", "dnf5" ]
   block:
     - name: Add collabora key (dnf and yum)
       ansible.builtin.rpm_key:
