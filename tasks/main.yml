@@ -23,6 +23,12 @@
         dest: /usr/share/keyrings/collaboraonline-release-keyring.gpg
         mode: "0644"
 
+    - name: (Debian/Ubuntu) Add NGINX signing key
+      ansible.builtin.get_url:
+        url: "https://www.collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
+        dest: /usr/share/keyrings/collaboraonline-release-keyring.gpg
+        checksum: "{{ collabora_online_key_checksum }}"
+
     - name: Add repository (apt)
       ansible.builtin.copy:
         dest: /etc/apt/sources.list.d/collaboraonline.sources
@@ -32,6 +38,10 @@
           Suites: ./
           Signed-By: /usr/share/keyrings/collaboraonline-release-keyring.gpg
         mode: "0644"
+
+    - name: Update apt sources to pull in the new apt repo
+      ansible.builtin.apt:
+        update_cache: true
 
 - name: Prepare redhat
   when:
@@ -51,6 +61,23 @@
 - name: Install packages
   ansible.builtin.package:
     name: "{{ collabora_online_packages }}"
+
+- name: Ensure a service.d directory exists for collabora
+  ansible.builtin.file:
+    path: /etc/systemd/system/coolwsd.service.d
+    state: directory
+    owner: root
+    group: root
+    mode: "0775"
+
+# If you want the English dictionary: apt install collaboraoffice-dict-en
+- name: Override service file to allow access to dictionary files
+  ansible.builtin.template:
+    src: override.conf.j2
+    dest: /etc/systemd/system/coolwsd.service.d/override.conf
+    owner: root
+    group: root
+    mode: "0644"
 
 - name: Configure collabora online
   ansible.builtin.template:
